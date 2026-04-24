@@ -3,20 +3,19 @@
 
 #include "patient.h"
 
-// Structure d'un nœud pour la file dynamique
+// Structure d'un nÅ“ud pour la file dynamique
 typedef struct Noeud {
     Patient patient;
     struct Noeud* suivant;
 } Noeud;
 
-// Structure de contrôle de la File
+// Structure de contrÃ´le de la File
 typedef struct {
-    Noeud* front; // Tête de file (sortie)
-    Noeud* rear;  // Queue de file (entrée)
+    Noeud* front; // TÃªte de file (sortie)
+    Noeud* rear;  // Queue de file (entrÃ©e)
     int taille;
 } FileAttente;
 
-// Prototypes des fonctions d'Anis
 void initialiser_file(FileAttente* f);
 void enregistrer_arrivee_patient(FileAttente* f, char* nom, char* prenom, int age);
 Patient appeler_patient_suivant(FileAttente* f);
