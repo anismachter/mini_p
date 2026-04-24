@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "patient.h"
+#include "file_attente.h"
+
+int main() {
+    FileAttente maFile;
+    initialiser_file(&maFile);
+
+    printf("=== TEST TECHNIQUE : GESTION DES ARRIVEES ===\n");
+
+    // Test 1 : Enregistrement de plusieurs patients
+    // Les tickets doivent être 1, 2 et 3
+    enregistrer_arrivee_patient(&maFile, "Benali", "Amine", 25);
+    enregistrer_arrivee_patient(&maFile, "Mansouri", "Sara", 30);
+    enregistrer_arrivee_patient(&maFile, "Kaci", "Lamine", 45);
+
+    // Test 2 : Affichage de la file
+    afficher_file(maFile);
+
+    printf("\n=== TEST TECHNIQUE : APPEL PATIENT ===\n");
+
+    // Test 3 : Appel du premier patient (Benali)
+    Patient p1 = appeler_patient_suivant(&maFile);
+    if (p1.id != 0) {
+        printf("En consultation : Ticket #%d - %s\n", p1.numTicket, p1.nom);
+    }
+
+    // Test 4 : Vérification de la mise à jour de la file
+    afficher_file(maFile);
+
+    // Test 5 : Appel des patients restants
+    appeler_patient_suivant(&maFile); // Appelle Mansouri
+    appeler_patient_suivant(&maFile); // Appelle Kaci
+
+    // Test 6 : Test de la file vide
+    printf("\nTentative d'appel sur une file vide :");
+    appeler_patient_suivant(&maFile);
+
+    return 0;
+}
