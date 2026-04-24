@@ -9,13 +9,13 @@ int main() {
 
     printf("=== TEST TECHNIQUE : GESTION DES ARRIVEES ===\n");
 
-    // Test 1 : Enregistrement de plusieurs patients
+    // Enregistrement de plusieurs patients
     // Les tickets doivent être 1, 2 et 3
     enregistrer_arrivee_patient(&maFile, "Benali", "Amine", 25);
     enregistrer_arrivee_patient(&maFile, "Mansouri", "Sara", 30);
     enregistrer_arrivee_patient(&maFile, "Kaci", "Lamine", 45);
 
-    // Test 2 : Affichage de la file
+    //  Affichage de la file
     afficher_file(maFile);
 
     printf("\n=== TEST TECHNIQUE : APPEL PATIENT ===\n");
@@ -26,10 +26,10 @@ int main() {
         printf("En consultation : Ticket #%d - %s\n", p1.numTicket, p1.nom);
     }
 
-    // Test 4 : Vérification de la mise à jour de la file
+    //  Vérification de la mise à jour de la file
     afficher_file(maFile);
 
-    // Test 5 : Appel des patients restants
+    // Appel des patients restants
     appeler_patient_suivant(&maFile); // Appelle Mansouri
     appeler_patient_suivant(&maFile); // Appelle Kaci
 
@@ -39,3 +39,4 @@ int main() {
 
     return 0;
 }
+
